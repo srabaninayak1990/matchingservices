@@ -55,7 +55,7 @@ public class ProcessCustomerRequestImpl implements ProcessCustomerRequest {
 			if(null != technician){
 				response = matchingService.reserveTechnician(customerIssueRequest.getIssueId(), customerIssueRequest.getCustomerEmail(), technician.getTechnicianKey().getTechId());
 			}else{
-				String errorMsg = String.join(": ", "None of the technicians are currently available or capable to handle this specific customer issue ID ", String.valueOf(customerIssueRequest.getIssueId()));
+				String errorMsg = String.join(": ", "None of the technicians are currently available or capable to handle this specific customer issue : ", criteria.getIssueType());
 				LOGGER.error(errorMsg);
 				throw new MatchingServiceException(errorMsg);
 			}
