@@ -29,7 +29,9 @@ public class TechnicianReservationController {
     			return new ResponseEntity<>(ex.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
     	}
     	
-        return new ResponseEntity<>(reservationConfirmation, HttpStatus.OK);  
+    	String response = "Your reservation confirmation number : " + reservationConfirmation;
+    	
+        return new ResponseEntity<>(response, HttpStatus.OK);  
     }
     
     @GetMapping(path="/num_issues")
@@ -40,8 +42,10 @@ public class TechnicianReservationController {
     	}catch(Exception ex){
 			return new ResponseEntity<>(ex.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
     	}
+    	
+	String response = (numIssues > 0 ? "Pending issues : " + numIssues.toString() : "No pending issues");
 	
-    return new ResponseEntity<>(numIssues.toString(), HttpStatus.OK);  
+    return new ResponseEntity<>(response , HttpStatus.OK);  
     }  
 
 }

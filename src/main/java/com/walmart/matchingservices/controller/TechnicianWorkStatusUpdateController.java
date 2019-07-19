@@ -58,7 +58,7 @@ public class TechnicianWorkStatusUpdateController {
 			return new ResponseEntity<>(ex.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
     	}
 	
-    return new ResponseEntity<>("Sucessfully updated the work status", HttpStatus.OK);  
+    return new ResponseEntity<>("Sucessfully updated the work status for reservation confirmation number : " + resId, HttpStatus.OK);  
     }  
 
 }

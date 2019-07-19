@@ -62,9 +62,10 @@ public class TechnicianReservationControllerTest {
     @Test
     public void testReponseObject() {
     	String resId = "12345";
+    	String serviceResponse = "Your reservation confirmation number : " + resId;
     	when(processCustomerRequest.processRequest(customerIssueRequest)).thenReturn(resId);
     	ResponseEntity<String> response = technicianReservationController.reserveTechnician(customerIssueRequest);        
-        assertEquals(resId, response.getBody());
+        assertEquals(serviceResponse, response.getBody());
     }
     
     @Test
@@ -88,11 +89,21 @@ public class TechnicianReservationControllerTest {
     }
 
     @Test
-    public void testGetNumIssuesReponseObject() {
+    public void testValidGetNumIssuesReponseObject() {
     	Integer numIssues= 2;
+    	String serviceResponse = "Pending issues : " + numIssues.toString();
     	when(processCustomerRequest.numIssues()).thenReturn(numIssues);
         ResponseEntity<String> response = technicianReservationController.getNumIssues();       
-        assertEquals(numIssues.toString(), response.getBody());
+        assertEquals(serviceResponse, response.getBody());
+    }
+    
+    @Test
+    public void testNoPendingNumIssuesReponseObject() {
+    	Integer numIssues= 0;
+    	String serviceResponse = "No pending issues";
+    	when(processCustomerRequest.numIssues()).thenReturn(numIssues);
+        ResponseEntity<String> response = technicianReservationController.getNumIssues();       
+        assertEquals(serviceResponse, response.getBody());
     }
     
     private CustomerIssueRequest getReqObject() {
