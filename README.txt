@@ -1,15 +1,31 @@
-# Getting Started
+**********************************
+*  Walmart Coding Assignment
+*  Matching Service
+*
+*  Srabani Nayak 07/14/2019
+**********************************
 
-### Reference Documentation
-For further reference, please consider the following sections:
+Matching service allows user to reserve a technician based on specific customer issues.
+This service will identify all the technicians who has capability to serve the user requests and check the availability of them and 
+if any of them are available then assign the request to first available technicians. 
+Once the technician is identified and assigned then generate a confirmation number to customer.
 
-* [Official Apache Maven documentation](https://maven.apache.org/guides/index.html)
+This service is designed in simple REST service using Springboot framework and in memory database H2
 
-### Guides
-The following guides illustrate how to use some features concretely:
+===================================
+1. Build Project By Maven
+===================================
 
-* [Building a RESTful Web Service](https://spring.io/guides/gs/rest-service/)
-* [Serving Web Content with Spring MVC](https://spring.io/guides/gs/serving-web-content/)
-* [Building REST services with Spring](https://spring.io/guides/tutorials/bookmarks/)
-* [Accessing Data with JPA](https://spring.io/guides/gs/accessing-data-jpa/)
+Run below command inside of this project folder, matchingservices-0.0.1.jar will be created under ./target inside of project directory
 
+$ mvn clean install
+
+===================================
+2. Run As Packaged Application
+===================================
+
+For running this service with default configuration, just run below command in the folder which contains matchingservices-0.0.1.jar
+Default port will be 9797.
+
+
+$ java -jar ./target/matchingservices-0.0.1.jar 

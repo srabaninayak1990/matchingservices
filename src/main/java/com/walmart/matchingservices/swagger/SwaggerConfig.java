@@ -21,7 +21,7 @@ public class SwaggerConfig {
     @Bean
     public Docket productApi() {
         return new Docket(DocumentationType.SWAGGER_2).select()
-           .apis(RequestHandlerSelectors.basePackage("com.walmart.matchingservice.controller"))
+           .apis(RequestHandlerSelectors.basePackage("com.walmart.matchingservices.controller"))
            .paths(PathSelectors.any())
            .build()
            .apiInfo(metaData());
